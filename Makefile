@@ -26,4 +26,4 @@ iso: myos.bin
 	grub-mkrescue -o myos.iso isodir
 
 run: iso
-	qemu-system-i386 -cdrom myos.iso
+	qemu-system-i386 -cdrom myos.iso -boot order=d
