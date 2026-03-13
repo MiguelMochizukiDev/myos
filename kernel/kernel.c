@@ -2,25 +2,31 @@
 
 #include "../include/vga.h"
 #include "../include/gdt.h"
+#include "../include/idt.h"
+#include "../include/pic.h"
 
 void kernel_main(void) {
 	terminal_init();
 
 	terminal_setcolor(VGA_LIGHT_GREEN, VGA_BLACK);
 	kprint("myOS kernel\n");
-
 	terminal_setcolor(VGA_LIGHT_GREY, VGA_BLACK);
 
 	gdt_init();
-	kprint("GDT Loaded!\n");
+	kprint("GDT loaded!\n");
 
-	kprint("VGA buffer in: ");
-	kprint_hex(0xB8000);
-	kputchar('\n');
+	pic_remap();
+	kprint("PIC remapped!\n");
 
-	kprint("Fuck Microsoft!\n");
+	idt_init();
+	kprint("IDT loaded!\n");
 
-	kprint("Love you Linus GOAT <3\n");
+	__asm__ volatile ("sti");
+	kprint("Interrupts enabled!\n");
+
+	volatile int zero = 0;
+	volatile int x = 1 / zero;
+	(void) x;
 
 	while (1) {};
 }
