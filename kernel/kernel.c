@@ -2,11 +2,6 @@
 
 #include "../include/vga.h"
 
-#define VGA_ADDRESS 0XB8000
-#define VGA_WHITE_ON_BLACK 0x0F
-
-static unsigned short *vga = (unsigned short *)VGA_ADDRESS;
-
 void kernel_main(void) {
 	terminal_init();
 
