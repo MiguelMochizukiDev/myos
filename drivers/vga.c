@@ -31,7 +31,7 @@ void terminal_init(void) {
 void terminal_clear(void) {
 	for (size_t row = 0; row < VGA_HEIGHT; row++) {
 		for (size_t col = 0; col < VGA_WIDTH; col++) {
-			vga_buffer[row * VGA_WHITE + col] = vga_entry(' ', terminal_color);
+			vga_buffer[row * VGA_WIDTH + col] = vga_entry(' ', terminal_color);
 		}
 	}
 	cursor_row = 0;
@@ -51,7 +51,7 @@ static void terminal_scroll(void) {
 	for (size_t col = 0; col < VGA_WIDTH; col++) {
 		vga_buffer[(VGA_HEIGHT - 1) * VGA_WIDTH + col] = vga_entry(' ', terminal_color);
 	}
-	cursor_row = VGA_HEIGHT + 1;
+	cursor_row = VGA_HEIGHT - 1;
 	cursor_col = 0;
 }
 
