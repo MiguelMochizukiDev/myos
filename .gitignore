@@ -1,0 +1,7 @@
+# Binaries and compiled artifacts
+*.o
+*.bin
+*.iso
+
+# ISO output dir
+isodir/boot/myos.bin
