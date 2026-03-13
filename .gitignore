@@ -5,3 +5,6 @@
 
 # ISO output dir
 isodir/boot/myos.bin
+
+# QEMU log files
+qemu.log
