@@ -34,6 +34,11 @@ static const char *exception_messages[] = {
 };
 
 void isr_handler(registers_t *regs) {
+	if (regs->int_no >= 32) {
+		pic_send_eoi(regs->int_no - 32);
+		return;
+	}
+
 	terminal_setcolor(VGA_LIGHT_RED, VGA_BLACK);
 	kprint("\n[EXCEPTION] ");
 	kprint(exception_messages[regs->int_no]);
