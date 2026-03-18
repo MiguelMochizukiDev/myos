@@ -65,4 +65,7 @@ extern void isr45(void);
 extern void isr46(void);
 extern void isr47(void);
 
+typedef void (*irq_handler_t)(registers_t *);
+void irq_register(uint8_t irq, irq_handler_t handler);
+
 #endif

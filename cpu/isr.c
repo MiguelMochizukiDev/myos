@@ -33,9 +33,19 @@ static const char *exception_messages[] = {
 	"Reserved"
 };
 
+static irq_handler_t irq_handlers[16] = {0};
+
+void irq_register(uint8_t irq, irq_handler_t handler) {
+	irq_handlers[irq] = handler;
+}
+
 void isr_handler(registers_t *regs) {
 	if (regs->int_no >= 32) {
-		pic_send_eoi(regs->int_no - 32);
+		uint8_t irq = regs->int_no - 32;
+		if (irq < 16 && irq_handlers[irq]) {
+			irq_handlers[irq](regs);
+		}
+		pic_send_eoi(irq);
 		return;
 	}
 
