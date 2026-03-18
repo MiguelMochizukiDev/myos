@@ -1,8 +1,8 @@
 /* isr.c */
 
-#include "../include/isr.h"
-#include "../include/vga.h"
-#include "../include/pic.h"
+#include "cpu/isr.h"
+#include "cpu/pic.h"
+#include "drivers/vga.h"
 
 static const char *exception_messages[] = {
 	"Division Error",

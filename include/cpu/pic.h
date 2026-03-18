@@ -1,7 +1,7 @@
 /* pic.h */
 
-#ifndef PIC_H
-#define PIC_H
+#ifndef CPU_PIC_H
+#define CPU_PIC_H
 
 #include <stdint.h>
 

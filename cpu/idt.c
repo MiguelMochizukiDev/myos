@@ -1,7 +1,7 @@
 /* idt.c */
 
-#include "../include/idt.h"
-#include "../include/isr.h"
+#include "cpu/idt.h"
+#include "cpu/isr.h"
 
 #define IDT_ENTRIES 256
 

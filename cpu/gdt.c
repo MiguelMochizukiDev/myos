@@ -1,6 +1,6 @@
 /* gdt.c */
 
-#include "../include/gdt.h"
+#include "cpu/gdt.h"
 
 #define GDT_ENTRIES 3
 

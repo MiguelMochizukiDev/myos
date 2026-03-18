@@ -1,7 +1,7 @@
 /* timer.h */
 
-#ifndef TIMER_H
-#define TIMER_H
+#ifndef DRIVERS_TIMER_H
+#define DRIVERS_TIMER_H
 
 #include <stdint.h>
 

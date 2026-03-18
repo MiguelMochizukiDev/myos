@@ -1,10 +1,10 @@
 /* kernel.c */
 
-#include "../include/vga.h"
-#include "../include/gdt.h"
-#include "../include/pic.h"
-#include "../include/idt.h"
-#include "../include/timer.h"
+#include "drivers/vga.h"
+#include "cpu/gdt.h"
+#include "cpu/pic.h"
+#include "cpu/idt.h"
+#include "drivers/timer.h"
 
 void kernel_main(void) {
 	terminal_init();

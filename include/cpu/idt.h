@@ -1,7 +1,7 @@
 /* idt.h */
 
-#ifndef IDT_H
-#define	IDT_H
+#ifndef CPU_IDT_H
+#define	CPU_IDT_H
 
 #include <stdint.h>
 

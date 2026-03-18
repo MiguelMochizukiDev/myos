@@ -1,6 +1,6 @@
 /* vga.c */
 
-#include "../include/vga.h"
+#include "drivers/vga.h"
 
 #define VGA_ADDRESS 0XB8000
 #define VGA_WIDTH 80

@@ -1,7 +1,7 @@
 /* isr.h */
 
-#ifndef ISR_H
-#define ISR_H
+#ifndef CPU_ISR_H
+#define CPU_ISR_H
 
 #include <stdint.h>
 

@@ -1,7 +1,8 @@
 /* timer.c */
 
-#include "../include/timer.h"
-#include "../include/isr.h"
+#include "drivers/timer.h"
+#include "cpu/isr.h"
+#include "cpu/pic.h"
 
 static uint32_t tick = 0;
 

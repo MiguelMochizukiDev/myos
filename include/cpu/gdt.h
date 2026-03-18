@@ -1,7 +1,7 @@
 /* gdt.h */
 
-#ifndef GDT_H
-#define GDT_H
+#ifndef CPU_GDT_H
+#define CPU_GDT_H
 
 #include <stdint.h>
 
