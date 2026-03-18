@@ -2,8 +2,9 @@
 
 #include "../include/vga.h"
 #include "../include/gdt.h"
-#include "../include/idt.h"
 #include "../include/pic.h"
+#include "../include/idt.h"
+#include "../include/timer.h"
 
 void kernel_main(void) {
 	terminal_init();
@@ -22,10 +23,11 @@ void kernel_main(void) {
 	idt_init();
 	kprint("IDT loaded!\n");
 
+	timer_init();
+	kprint("Timer started\n");
+
 	__asm__ volatile ("sti");
 	kprint("Interrupts enabled!\n");
-
-	__asm__ volatile ("xorl %eax, %eax; divl %eax");
 
 	while (1) {};
 }

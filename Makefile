@@ -4,16 +4,17 @@ AS      = nasm
 CFLAGS  = -ffreestanding -O2 -Wall -Wextra -Iinclude
 LDFLAGS = -T linker.ld -ffreestanding -O2 -nostdlib
 
-OBJS = boot/boot.o		\
-       cpu/gdt.o		\
-       cpu/gdt_flush.o	\
-       cpu/idt.o		\
-       cpu/idt_load.o	\
-       cpu/isr.o		\
-       cpu/isr_asm.o	\
-	   cpu/pic.o		\
-       kernel/kernel.o	\
-       drivers/vga.o	\
+OBJS = boot/boot.o \
+	   cpu/gdt.o \
+	   cpu/gdt_flush.o \
+	   cpu/idt.o \
+	   cpu/idt_load.o \
+       cpu/isr.o \
+	   cpu/isr_asm.o \
+	   cpu/pic.o \
+	   cpu/timer.o \
+	   kernel/kernel.o \
+	   drivers/vga.o
 
 all: myos.bin
 
