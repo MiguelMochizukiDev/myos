@@ -53,3 +53,18 @@ void pic_mask_all(void) {
 	outb(PIC1_DATA, 0xFF);
 	outb(PIC2_DATA, 0xFF);
 }
+
+void pic_unmask(uint8_t irq) {
+	uint16_t port;
+	uint8_t mask;
+
+	if (irq < 8) {
+		port = PIC1_DATA;
+	} else {
+		port = PIC2_DATA;
+		irq -= 8;
+	}
+
+	mask = inb(port) & ~(1 << irq);
+	outb(port, mask);
+}
