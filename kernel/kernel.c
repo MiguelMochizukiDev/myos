@@ -16,6 +16,7 @@ void kernel_main(void) {
 	kprint("GDT loaded!\n");
 
 	pic_remap();
+	pic_mask_all();
 	kprint("PIC remapped!\n");
 
 	idt_init();
@@ -24,9 +25,7 @@ void kernel_main(void) {
 	__asm__ volatile ("sti");
 	kprint("Interrupts enabled!\n");
 
-	volatile int zero = 0;
-	volatile int x = 1 / zero;
-	(void) x;
+	__asm__ volatile ("xorl %eax, %eax; divl %eax");
 
 	while (1) {};
 }
