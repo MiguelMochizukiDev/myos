@@ -1,7 +1,6 @@
 CC      := x86_64-elf-gcc
 AS      := nasm
 LD      := x86_64-elf-ld
-
 GRUB    := grub-mkrescue
 
 CFLAGS  := -std=c11 \
@@ -15,17 +14,18 @@ CFLAGS  := -std=c11 \
             -I include
 
 ASFLAGS := -f elf64
-
 LDFLAGS := -nostdlib -T linker.ld -z max-page-size=0x1000
 
 KERNEL  := iso/boot/myos.kernel
 ISO     := myos.iso
 
-KERNEL_SRCS := kernel/main.c
-LOADER_SRCS := loader/boot.asm
+SRCS_ASM := loader/boot.asm
+SRCS_C   := kernel/main.c \
+            kernel/kprintf.c \
+            drivers/vga.c
 
-OBJS := $(LOADER_SRCS:.asm=.o) \
-        $(KERNEL_SRCS:.c=.o)
+OBJS := $(SRCS_ASM:.asm=.o) \
+        $(SRCS_C:.c=.o)
 
 .PHONY: all clean run debug
 
