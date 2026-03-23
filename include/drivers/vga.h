@@ -90,7 +90,7 @@ void vga_putchar(char c);
 /**
  * Write a null-terminated string at the current cursor position.
  *
- * Equivalent to calling vga_putchar() for each character in @p s.
+ * Equivalent to calling vga_putchar() for each character in s.
  *
  * Args:
  * s - Null-terminated ASCII string.
